@@ -1,98 +1,63 @@
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f2f4f8;
-  color: #001f3f;
+  font-family: sans-serif;
+  background-color: #f5f8ff;
+  color: #002147;
   margin: 0;
-  padding: 20px;
+  padding: 2rem;
   text-align: center;
 }
 
 h1 {
-  margin-bottom: 20px;
-  color: #001f3f;
+  font-size: 2rem;
+  color: #002147;
+  margin-bottom: 1rem;
 }
 
 .leyenda {
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 }
 
 .cuadro {
   display: inline-block;
-  width: 16px;
-  height: 16px;
-  margin: 0 6px;
-  border-radius: 4px;
-  vertical-align: middle;
+  width: 15px;
+  height: 15px;
+  margin: 0 5px;
+  border-radius: 3px;
 }
 
-.cuadro.bloqueado {
-  background-color: #ccc;
-}
+.aprobado { background-color: #004080; }
+.desbloqueado { background-color: #6baed6; }
+.bloqueado { background-color: #d3d3d3; }
 
-.cuadro.desbloqueado {
-  background-color: #d3dff0;
-  border: 2px solid #001f3f;
-}
-
-.cuadro.aprobado {
-  background-color: #001f3f;
-}
-
-.progreso {
-  margin: 15px 0;
-  font-weight: bold;
-}
-
-.malla {
+#contenedor-malla {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .semestre {
-  width: 100%;
-  max-width: 1000px;
+  background-color: #e0e6f8;
+  border: 2px solid #004080;
+  border-radius: 12px;
+  padding: 1rem;
+  min-width: 220px;
 }
 
 .semestre h2 {
-  border-bottom: 2px solid #001f3f;
-  padding-bottom: 4px;
-  margin-bottom: 10px;
-  text-align: left;
-}
-
-.ramos {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: flex-start;
+  color: #002147;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
 }
 
 .ramo {
-  background-color: #ccc;
-  color: #001f3f;
-  border: 2px solid #999;
-  border-radius: 10px;
-  padding: 10px;
-  min-width: 200px;
-  text-align: center;
-  font-weight: bold;
-  cursor: not-allowed;
-  opacity: 0.5;
-  transition: 0.2s;
-}
-
-.ramo.desbloqueado {
-  background-color: #d3dff0;
+  margin: 5px 0;
+  padding: 0.5rem;
+  border-radius: 8px;
   cursor: pointer;
-  border-color: #001f3f;
-  opacity: 1;
+  background-color: #d3d3d3;
+  transition: all 0.3s;
 }
 
-.ramo.aprobado {
-  background-color: #001f3f;
-  color: white;
-  text-decoration: line-through;
-  cursor: default;
-}
+.ramo.aprobado { background-color: #004080; color: white; }
+.ramo.desbloqueado { background-color: #6baed6; color: white; }
