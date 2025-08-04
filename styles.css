@@ -1,80 +1,71 @@
+/* Variables de color */
 :root {
-  --color-azul-navy: #1b2a49;
-  --color-azul-claro: #5472d3;
-  --color-rosado-claro: #f7d9e3;
-  --color-rosado-medio: #e599b5;
-  --color-blanco: #ffffff;
+  --navy: #1b2a49;
+  --navy-light: #39537f;
+  --navy-dark: #101d3a;
+  --white: #fff;
+  --gray-light: #d4d9e6;
+  --gray-medium: #a3accf;
+  --gray-dark: #6c7aab;
+  --blue-checked: #264d85;
+}
+
+/* Reset básico */
+* {
+  box-sizing: border-box;
 }
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: var(--color-rosado-claro);
-  color: var(--color-azul-navy);
   margin: 0;
-  padding: 20px;
+  background-color: var(--navy-light);
+  color: var(--white);
   min-height: 100vh;
-}
-
-.titulo {
-  text-align: center;
-  color: var(--color-azul-navy);
-  font-weight: 700;
-  margin-bottom: 15px;
-  user-select: none;
-}
-
-.leyenda {
   display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 10px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
 }
 
-.leyenda-item {
-  padding: 6px 14px;
-  border-radius: 12px;
-  font-weight: 600;
-  font-size: 0.9rem;
+header {
+  background-color: var(--navy);
+  width: 100%;
+  padding: 1rem 0;
+  text-align: center;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.4);
   user-select: none;
-  cursor: default;
-  color: var(--color-blanco);
 }
 
-.leyenda-item.bloqueado {
-  background-color: #9e9e9e;
-}
-
-.leyenda-item.desbloqueado {
-  background-color: var(--color-azul-claro);
-}
-
-.leyenda-item.aprobado {
-  background-color: var(--color-rosado-medio);
+header h1 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.8rem;
 }
 
 #progreso {
-  text-align: center;
+  margin-top: 6px;
   font-weight: 600;
-  margin-bottom: 20px;
-  font-size: 1.1rem;
+  color: var(--gray-light);
 }
 
+/* Contenedor de semestres en fila */
 #contenedor-semestres {
   display: flex;
-  gap: 24px;
   flex-wrap: wrap;
+  gap: 1.5rem;
+  max-width: 1200px;
+  width: 100%;
+  padding: 2rem 1rem 4rem;
   justify-content: center;
-  user-select: none;
 }
 
-/* Cada semestre como columna */
+/* Cada semestre es una columna */
 .semestre {
-  background-color: var(--color-blanco);
+  background-color: var(--navy-dark);
   border-radius: 12px;
-  padding: 12px 16px;
-  width: 260px;
-  box-shadow: 0 3px 10px rgba(27, 42, 73, 0.2);
+  padding: 1rem 1.2rem;
+  flex: 1 1 280px;
+  max-width: 300px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.5);
   display: flex;
   flex-direction: column;
   user-select: none;
@@ -82,9 +73,12 @@ body {
 
 .semestre h2 {
   text-align: center;
-  color: var(--color-azul-navy);
-  margin-bottom: 12px;
-  user-select: none;
+  margin: 0 0 1rem 0;
+  border-bottom: 2px solid var(--gray-medium);
+  padding-bottom: 6px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--white);
 }
 
 /* Lista de ramos */
@@ -94,87 +88,92 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.6rem;
 }
 
-/* Estilos para cada ramo según estado */
+/* Cada ramo (botón) */
 .ramo {
-  padding: 10px 14px;
-  border-radius: 10px;
+  background-color: var(--navy);
+  border: 2px solid var(--gray-medium);
+  border-radius: 8px;
+  padding: 8px 12px;
   font-weight: 600;
-  font-size: 0.95rem;
-  user-select: none;
-  transition: background-color 0.25s ease, color 0.25s ease;
-  outline: none;
-  box-shadow: 0 1px 3px rgba(27, 42, 73, 0.15);
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: var(--gray-light);
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
+  outline-offset: 3px;
+  outline-color: transparent;
+}
+
+.ramo:focus {
+  outline-color: var(--white);
+  outline-style: solid;
+  outline-width: 2px;
+}
+
+.ramo:hover:not(.bloqueado) {
+  background-color: var(--navy-light);
+  color: var(--white);
+  border-color: var(--blue-checked);
 }
 
 /* Estados */
+
+/* Bloqueado */
 .ramo.bloqueado {
-  background-color: #d1d1d1;
-  color: #6a6a6a;
+  background-color: var(--navy-dark);
+  border-color: #444e72;
+  color: #67749e;
   cursor: not-allowed;
+  user-select: none;
 }
 
+/* Desbloqueado */
 .ramo.desbloqueado {
-  background-color: var(--color-azul-claro);
-  color: var(--color-blanco);
+  background-color: var(--navy);
+  border-color: var(--gray-medium);
+  color: var(--gray-light);
   cursor: pointer;
 }
 
+/* Aprobado */
 .ramo.aprobado {
-  background-color: var(--color-rosado-medio);
-  color: var(--color-blanco);
+  background-color: var(--blue-checked);
+  border-color: #18345e;
+  color: #e0e8ff;
+  font-weight: 700;
+  position: relative;
   cursor: pointer;
 }
 
-/* Icono check para aprobado */
+/* Marca ✔ en aprobado */
 .ramo.aprobado::after {
-  content: " ✔";
+  content: "✔";
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
   font-weight: 900;
-}
-
-/* Focus visible para accesibilidad */
-.ramo:focus-visible {
-  outline: 3px solid var(--color-rosado-medio);
+  color: #d0e6ff;
 }
 
 /* Tooltip */
 .tooltip {
   position: absolute;
-  background-color: var(--color-azul-navy);
-  color: white;
+  background-color: var(--navy);
+  color: var(--white);
   padding: 6px 10px;
   border-radius: 6px;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.25s ease;
+  box-shadow: 0 0 10px rgba(27,42,73,0.8);
+  max-width: 220px;
+  white-space: pre-wrap;
   z-index: 1000;
-  white-space: pre-line;
-}
-
-/* Botón reset */
-button {
-  background-color: var(--color-azul-navy);
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 600;
-  padding: 8px 16px;
-  margin-bottom: 20px;
-  display: block;
-  user-select: none;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: var(--color-azul-claro);
-}
-
-  background-color: var(--color-azul-navy);
-  color: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  user-select: none;
 }
