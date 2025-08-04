@@ -1,1 +1,62 @@
+{
+  "1° Año - 1 Semestre": [
+    {
+      "nombre": "Anatomia general",
+      "desbloquea": ["Fisiologia humana", "Anatomia del sistema visual"]
+    },
+    {
+      "nombre": "Biologia Humana e Histologia",
+      "desbloquea": ["Fisiologia humana", "Anatomia del sistema visual"]
+    },
+    {
+      "nombre": "Quimica general y organica",
+      "desbloquea": ["Bioquimica"]
+    },
+    {
+      "nombre": "Matematicas",
+      "desbloquea": ["Fisica general"]
+    },
+    {
+      "nombre": "Introduccion a la tecnologia medica en oftalmologia",
+      "desbloquea": ["Interaccion humana y sociocultural"]
+    },
+    {
+      "nombre": "Expresion oral y escrita",
+      "desbloquea": ["Interaccion humana y sociocultural"]
+    },
+    {
+      "nombre": "Taller de ingles",
+      "desbloquea": ["Ingles general"]
+    }
+  ],
+
+  "1° Año - 2 Semestre": [
+    {
+      "nombre": "Fisiologia humana",
+      "desbloquea": ["Fisiopatologia humana", "Enfermeria basica"]
+    },
+    {
+      "nombre": "Anatomia del sistema visual",
+      "desbloquea": []
+    },
+    {
+      "nombre": "Bioquimica",
+      "desbloquea": ["Farmacologia general"]
+    },
+    {
+      "nombre": "Fisica general",
+      "desbloquea": ["Fisica optica"]
+    },
+    {
+      "nombre": "Ingles general",
+      "desbloquea": ["Ingles tecnico"]
+    },
+    {
+      "nombre": "Interaccion humana y sociocultural",
+      "desbloquea": ["Psicologia de la salud"]
+    }
+  ]
+
+  // Continúa el resto de los semestres igual...
+}
 
