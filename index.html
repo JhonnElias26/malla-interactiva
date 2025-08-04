@@ -1,27 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tecnología Médica en Oftalmología y Optometría</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Malla Curricular TM Oftalmología</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
-  <h1 class="titulo">Tecnología Médica en Oftalmología y Optometría</h1>
+  <header>
+    <h1>Tecnología Médica en Oftalmología y Optometría</h1>
+    <div id="progreso">Progreso: 0%</div>
+  </header>
 
-  <div class="leyenda" role="list" aria-label="Leyenda estados de ramos">
-    <span class="leyenda-item bloqueado" role="listitem">Bloqueado</span>
-    <span class="leyenda-item desbloqueado" role="listitem">Desbloqueado</span>
-    <span class="leyenda-item aprobado" role="listitem">Aprobado</span>
-  </div>
-
-  <p id="progreso" aria-live="polite" aria-atomic="true">Progreso: 0%</p>
-
-  <div id="contenedor-semestres" role="main" aria-label="Malla curricular"></div>
+  <main id="contenedor-semestres" aria-label="Malla Curricular">
+    <!-- Se carga por JS -->
+  </main>
 
   <script src="script.js"></script>
 </body>
-
 </html>
+
