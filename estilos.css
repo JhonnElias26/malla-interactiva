@@ -1,48 +1,46 @@
 body {
   font-family: Arial, sans-serif;
-  text-align: center;
-  background: #f2f2f2;
+  background-color: #f2f4f8;
+  color: #001f3f;
   margin: 0;
   padding: 20px;
+  text-align: center;
 }
 
 h1 {
+  color: #001f3f;
   margin-bottom: 30px;
 }
 
 .malla {
   display: flex;
-  justify-content: center;
-  gap: 20px;
   flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
 }
 
 .ramo {
-  padding: 20px;
-  background: #fff;
-  border: 2px solid #ccc;
+  background-color: #d3dff0;
+  color: #001f3f;
+  border: 2px solid #001f3f;
   border-radius: 10px;
+  padding: 12px 15px;
+  width: 220px;
+  cursor: not-allowed;
+  opacity: 0.5;
+  transition: all 0.2s ease-in-out;
+  text-align: center;
+  font-weight: bold;
+}
+
+.ramo.desbloqueado {
   cursor: pointer;
-  transition: transform 0.2s ease;
+  opacity: 1;
 }
 
-.ramo:hover {
-  transform: scale(1.05);
-  border-color: #007acc;
-}
-
-.ramo.activo {
-  background: #007acc;
+.ramo.aprobado {
+  background-color: #001f3f;
   color: white;
-  border-color: #005f99;
-}
-
-.info-box {
-  margin-top: 30px;
-  padding: 20px;
-  background: #ffffff;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  display: inline-block;
-  min-width: 300px;
+  border-color: #001f3f;
+  text-decoration: line-through;
 }
