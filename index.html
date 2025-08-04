@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Malla Interactiva - Tecnología Médica</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>Malla Curricular Interactiva</h1>
+
+  <div class="leyenda">
+    <span class="cuadro bloqueado"></span> Bloqueado
+    <span class="cuadro desbloqueado"></span> Desbloqueado
+    <span class="cuadro aprobado"></span> Aprobado
+  </div>
+
+  <div id="progreso" class="progreso">Progreso: 0%</div>
   <div id="malla" class="malla"></div>
+
   <script src="script.js"></script>
 </body>
 </html>
