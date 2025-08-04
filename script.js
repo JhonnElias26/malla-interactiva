@@ -1,88 +1,56 @@
-const ramos = [
-  { nombre: "Anatomia general", desbloquea: ["Fisiologia humana", "Anatomia del sistema visual"] },
-  { nombre: "Biologia Humana e Histologia", desbloquea: ["Fisiologia humana", "Anatomia del sistema visual"] },
-  { nombre: "Quimica general y organica", desbloquea: ["Bioquimica"] },
-  { nombre: "Matematicas", desbloquea: ["Fisica general"] },
-  { nombre: "Introduccion a la tecnologia medica en oftalmologia", desbloquea: ["Interaccion humana y sociocultural"] },
-  { nombre: "Expresion oral y escrita", desbloquea: ["Interaccion humana y sociocultural"] },
-  { nombre: "Taller de ingles", desbloquea: ["Ingles general"] },
-  { nombre: "Fisiologia humana", desbloquea: ["Fisiopatologia humana", "Enfermeria basica"] },
-  { nombre: "Anatomia del sistema visual", desbloquea: [] },
-  { nombre: "Bioquimica", desbloquea: ["Farmacologia general"] },
-  { nombre: "Fisica general", desbloquea: ["Fisica optica"] },
-  { nombre: "Ingles general", desbloquea: ["Ingles tecnico"] },
-  { nombre: "Interaccion humana y sociocultural", desbloquea: ["Psicologia de la salud"] },
-  { nombre: "Fisiopatologia humana", desbloquea: ["Microbiologia e inmunologia", "Semiologia del sistema visual"] },
-  { nombre: "Enfermeria basica", desbloquea: ["Farmacologia ocular"] },
-  { nombre: "Farmacologia general", desbloquea: ["Farmacologia ocular"] },
-  { nombre: "Fisica optica", desbloquea: ["Fundamentos de la oftalmologia"] },
-  { nombre: "Psicologia de la salud", desbloquea: ["Salud publica"] },
-  { nombre: "Ingles tecnico", desbloquea: [] },
-  { nombre: "Microbiologia e inmunologia", desbloquea: [] },
-  { nombre: "Semiologia del sistema visual", desbloquea: ["Fundamentos del glaucoma", "Fundamentos del estrabismo"] },
-  { nombre: "Farmacologia ocular", desbloquea: ["Fundamentos del glaucoma"] },
-  { nombre: "Fundamentos de la oftalmologia", desbloquea: ["Fundamentos del estrabismo", "Fundamentos del campo visual"] },
-  { nombre: "Salud publica", desbloquea: ["Gestion y liderazgo", "Bioestadistica"] },
-  { nombre: "Electivo de formacion general", desbloquea: [] },
-  { nombre: "Fundamentos del glaucoma", desbloquea: ["Glaucoma y campo visual", "Optometria 1"] },
-  { nombre: "Fundamentos del estrabismo", desbloquea: ["Tecnicas ortopticas y pleopticas", "Optometria 1"] },
-  { nombre: "Fundamentos del campo visual", desbloquea: ["Glaucoma y campo visual"] },
-  { nombre: "Gestion y liderazgo", desbloquea: [] },
-  { nombre: "Bioestadistica", desbloquea: ["Metodologia de la investigacion en oftalmologia"] },
-  { nombre: "Bioetica", desbloquea: ["Metodologia de la investigacion en oftalmologia"] },
-  { nombre: "Glaucoma y campo visual", desbloquea: ["Neuroftalmologia", "Clinica de atencion primaria"] },
-  { nombre: "Tecnicas ortopticas y pleopticas", desbloquea: ["Neuroftalmologia", "Clinica de atencion primaria"] },
-  { nombre: "Fisiopatologia del polo posterior", desbloquea: ["Imagenologia ocular"] },
-  { nombre: "Optometria 1", desbloquea: ["Tecnicas de apoyo para cirugia refractiva", "Optometria 2", "Seminario de grado 1", "Clinica de atencion primaria"] },
-  { nombre: "Metodologia de la investigacion en oftalmologia", desbloquea: ["Seminario de grado 1"] },
-  { nombre: "Neuroftalmologia", desbloquea: [] },
-  { nombre: "Tecnicas de apoyo para cirugia refractiva", desbloquea: ["Biometria ocular"] },
-  { nombre: "Imagenologia ocular", desbloquea: ["Biometria ocular"] },
-  { nombre: "Optometria 2", desbloquea: ["Clinica de atencion primaria optometrica", "Baja vision", "Seminario de grado 2"] },
-  { nombre: "Seminario de grado 1", desbloquea: ["Seminario de grado 2"] },
-  { nombre: "Clinica de atencion primaria", desbloquea: ["Analisis clinico integral"] },
-  { nombre: "Analisis clinico integral", desbloquea: ["Clinica medica"] },
-  { nombre: "Biometria ocular", desbloquea: [] },
-  { nombre: "Clinica de atencion primaria optometrica", desbloquea: ["Clinica medica", "Gestion y proyecto de intervencion comunitaria"] },
-  { nombre: "Baja vision", desbloquea: [] },
-  { nombre: "Seminario de grado 2", desbloquea: ["Electivo de formacion profesional 1", "Electivo de formacion profesional 2"] },
-  { nombre: "Clinica medica", desbloquea: [] },
-  { nombre: "Gestion y proyecto de intervencion  comunitaria", desbloquea: [] },
-  { nombre: "Electivo de formacion profesional 1", desbloquea: [] },
-  { nombre: "Electivo de formacion profesional 2", desbloquea: [] },
-  { nombre: "Actividad de titulacion: internado", desbloquea: [] }
-];
+let estructura = {};
+let estado = {};
 
-const estado = {};
+async function cargarMalla() {
+  const res = await fetch('malla.json');
+  estructura = await res.json();
 
-function crearMalla() {
-  const contenedor = document.getElementById("malla");
-  ramos.forEach(ramo => {
-    estado[ramo.nombre] = { aprobado: false, desbloqueado: false };
-    const div = document.createElement("div");
-    div.textContent = ramo.nombre;
-    div.className = "ramo";
-    div.id = ramo.nombre;
-    div.onclick = () => aprobarRamo(ramo.nombre);
-    contenedor.appendChild(div);
-  });
-  desbloquearIniciales();
+  const container = document.getElementById('malla');
+  for (const semestre in estructura) {
+    const bloque = document.createElement('div');
+    bloque.className = 'semestre';
+    bloque.innerHTML = `<h2>${semestre}</h2><div class="ramos" id="bloque-${semestre}"></div>`;
+    container.appendChild(bloque);
+
+    estructura[semestre].forEach(ramo => {
+      estado[ramo.nombre] = {
+        aprobado: false,
+        desbloqueado: false,
+        desbloquea: ramo.desbloquea
+      };
+
+      const div = document.createElement('div');
+      div.textContent = ramo.nombre;
+      div.className = 'ramo';
+      div.id = `ramo-${ramo.nombre}`;
+      div.onclick = () => aprobarRamo(ramo.nombre);
+      document.getElementById(`bloque-${semestre}`).appendChild(div);
+    });
+  }
+
+  cargarProgresoGuardado();
+  desbloquearRamosSinRequisitos();
+  actualizarProgreso();
 }
 
-function desbloquearIniciales() {
-  // Desbloquear ramos sin prerequisitos
-  const conRequisitos = new Set(ramos.flatMap(r => r.desbloquea));
-  ramos.forEach(r => {
-    if (!conRequisitos.has(r.nombre)) desbloquear(r.nombre);
+function desbloquearRamosSinRequisitos() {
+  const todos = Object.keys(estado);
+  const desbloqueados = new Set();
+
+  todos.forEach(r => {
+    estado[r].desbloquea.forEach(d => desbloqueados.add(d));
+  });
+
+  todos.forEach(r => {
+    if (!desbloqueados.has(r)) desbloquear(r);
   });
 }
 
 function desbloquear(nombre) {
   if (!estado[nombre].desbloqueado) {
     estado[nombre].desbloqueado = true;
-    const div = document.getElementById(nombre);
-    div.classList.add("desbloqueado");
-    div.style.cursor = "pointer";
+    const div = document.getElementById(`ramo-${nombre}`);
+    div.classList.add('desbloqueado');
   }
 }
 
@@ -90,11 +58,42 @@ function aprobarRamo(nombre) {
   if (!estado[nombre].desbloqueado || estado[nombre].aprobado) return;
 
   estado[nombre].aprobado = true;
-  const div = document.getElementById(nombre);
-  div.classList.add("aprobado");
+  const div = document.getElementById(`ramo-${nombre}`);
+  div.classList.remove('desbloqueado');
+  div.classList.add('aprobado');
 
-  const ramo = ramos.find(r => r.nombre === nombre);
-  ramo.desbloquea.forEach(desbloquear);
+  estado[nombre].desbloquea.forEach(desbloquear);
+  guardarProgreso();
+  actualizarProgreso();
 }
 
-crearMalla();
+function guardarProgreso() {
+  localStorage.setItem('estadoMalla', JSON.stringify(estado));
+}
+
+function cargarProgresoGuardado() {
+  const saved = localStorage.getItem('estadoMalla');
+  if (!saved) return;
+
+  const cargado = JSON.parse(saved);
+  for (const nombre in cargado) {
+    if (!estado[nombre]) continue;
+    estado[nombre].aprobado = cargado[nombre].aprobado;
+    estado[nombre].desbloqueado = cargado[nombre].desbloqueado;
+    const div = document.getElementById(`ramo-${nombre}`);
+    if (estado[nombre].aprobado) {
+      div.classList.add('aprobado');
+    } else if (estado[nombre].desbloqueado) {
+      div.classList.add('desbloqueado');
+    }
+  }
+}
+
+function actualizarProgreso() {
+  const total = Object.keys(estado).length;
+  const aprobados = Object.values(estado).filter(e => e.aprobado).length;
+  const porcentaje = Math.round((aprobados / total) * 100);
+  document.getElementById('progreso').textContent = `Progreso: ${porcentaje}%`;
+}
+
+cargarMalla();
