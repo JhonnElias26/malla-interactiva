@@ -1,20 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tecnología Médica en Oftalmología y Optometría</title>
-  <link rel="stylesheet" href="estilos.css" />
+  <link rel="stylesheet" href="estilos.css">
 </head>
+
 <body>
-  <h1>Tecnología Médica en Oftalmología y Optometría</h1>
+  <h1 class="titulo">Tecnología Médica en Oftalmología y Optometría</h1>
+
   <div class="leyenda">
-    <span class="cuadro aprobado"></span> Aprobado
-    <span class="cuadro desbloqueado"></span> Desbloqueado
-    <span class="cuadro bloqueado"></span> Bloqueado
+    <span class="leyenda-item bloqueado">Bloqueado</span>
+    <span class="leyenda-item desbloqueado">Desbloqueado</span>
+    <span class="leyenda-item aprobado">Aprobado</span>
   </div>
-  <div id="avance">Avance: 0%</div>
-  <div id="contenedor-malla"></div>
+
+  <p id="progreso">Progreso: 0%</p>
+
+  <div id="contenedor-semestres"></div>
+
   <script src="script.js"></script>
 </body>
+
 </html>
