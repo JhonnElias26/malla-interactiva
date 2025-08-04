@@ -8,39 +8,91 @@ body {
 }
 
 h1 {
+  margin-bottom: 20px;
   color: #001f3f;
-  margin-bottom: 30px;
+}
+
+.leyenda {
+  margin-bottom: 10px;
+}
+
+.cuadro {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  margin: 0 6px;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+
+.cuadro.bloqueado {
+  background-color: #ccc;
+}
+
+.cuadro.desbloqueado {
+  background-color: #d3dff0;
+  border: 2px solid #001f3f;
+}
+
+.cuadro.aprobado {
+  background-color: #001f3f;
+}
+
+.progreso {
+  margin: 15px 0;
+  font-weight: bold;
 }
 
 .malla {
   display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
+
+.semestre {
+  width: 100%;
+  max-width: 1000px;
+}
+
+.semestre h2 {
+  border-bottom: 2px solid #001f3f;
+  padding-bottom: 4px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.ramos {
+  display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 10px;
+  justify-content: flex-start;
 }
 
 .ramo {
-  background-color: #d3dff0;
+  background-color: #ccc;
   color: #001f3f;
-  border: 2px solid #001f3f;
+  border: 2px solid #999;
   border-radius: 10px;
-  padding: 12px 15px;
-  width: 220px;
-  cursor: not-allowed;
-  opacity: 0.5;
-  transition: all 0.2s ease-in-out;
+  padding: 10px;
+  min-width: 200px;
   text-align: center;
   font-weight: bold;
+  cursor: not-allowed;
+  opacity: 0.5;
+  transition: 0.2s;
 }
 
 .ramo.desbloqueado {
+  background-color: #d3dff0;
   cursor: pointer;
+  border-color: #001f3f;
   opacity: 1;
 }
 
 .ramo.aprobado {
   background-color: #001f3f;
   color: white;
-  border-color: #001f3f;
   text-decoration: line-through;
+  cursor: default;
 }
