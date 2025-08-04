@@ -2,103 +2,103 @@
   {
     "semestre": "1 Semestre",
     "ramos": [
-      { "nombre": "Anatomía general", "estado": "desbloqueado", "abre": ["Fisiología humana", "Anatomía del sistema visual"], "prerequisitos": [] },
-      { "nombre": "Biología Humana e Histología", "estado": "desbloqueado", "abre": ["Fisiología humana", "Anatomía del sistema visual"], "prerequisitos": [] },
-      { "nombre": "Química general y orgánica", "estado": "desbloqueado", "abre": ["Bioquímica"], "prerequisitos": [] },
-      { "nombre": "Matemáticas", "estado": "desbloqueado", "abre": ["Física general"], "prerequisitos": [] },
-      { "nombre": "Introducción a la tecnología médica en oftalmología", "estado": "desbloqueado", "abre": ["Interacción humana y sociocultural"], "prerequisitos": [] },
-      { "nombre": "Expresión oral y escrita", "estado": "desbloqueado", "abre": ["Interacción humana y sociocultural"], "prerequisitos": [] },
-      { "nombre": "Taller de inglés", "estado": "desbloqueado", "abre": ["Inglés general"], "prerequisitos": [] }
+      { "nombre": "Anatomia general", "abre": ["Fisiologia humana", "Anatomia del sistema visual"], "prerequisitos": [] },
+      { "nombre": "Biologia Humana e Histologia", "abre": ["Fisiologia humana", "Anatomia del sistema visual"], "prerequisitos": [] },
+      { "nombre": "Quimica general y organica", "abre": ["Bioquimica"], "prerequisitos": [] },
+      { "nombre": "Matematicas", "abre": ["Fisica general"], "prerequisitos": [] },
+      { "nombre": "Introduccion a la tecnologia medica en oftalmologia", "abre": ["Interaccion humana y sociocultural"], "prerequisitos": [] },
+      { "nombre": "Expresion oral y escrita", "abre": ["Interaccion humana y sociocultural"], "prerequisitos": [] },
+      { "nombre": "Taller de ingles", "abre": ["Ingles general"], "prerequisitos": [] }
     ]
   },
   {
     "semestre": "2 Semestre",
     "ramos": [
-      { "nombre": "Fisiología humana", "estado": "bloqueado", "abre": ["Fisiopatología humana", "Enfermería básica"], "prerequisitos": ["Anatomía general", "Biología Humana e Histología"] },
-      { "nombre": "Anatomía del sistema visual", "estado": "bloqueado", "abre": [], "prerequisitos": ["Anatomía general", "Biología Humana e Histología"] },
-      { "nombre": "Bioquímica", "estado": "bloqueado", "abre": ["Farmacología general"], "prerequisitos": ["Química general y orgánica"] },
-      { "nombre": "Física general", "estado": "bloqueado", "abre": ["Física óptica"], "prerequisitos": ["Matemáticas"] },
-      { "nombre": "Inglés general", "estado": "bloqueado", "abre": ["Inglés técnico"], "prerequisitos": ["Taller de inglés"] },
-      { "nombre": "Interacción humana y sociocultural", "estado": "bloqueado", "abre": ["Psicología de la salud"], "prerequisitos": ["Introducción a la tecnología médica en oftalmología", "Expresión oral y escrita"] }
+      { "nombre": "Fisiologia humana", "abre": ["Fisiopatologia humana", "Enfermeria basica"], "prerequisitos": ["Anatomia general", "Biologia Humana e Histologia"] },
+      { "nombre": "Anatomia del sistema visual", "abre": [], "prerequisitos": ["Anatomia general", "Biologia Humana e Histologia"] },
+      { "nombre": "Bioquimica", "abre": ["Farmacologia general"], "prerequisitos": ["Quimica general y organica"] },
+      { "nombre": "Fisica general", "abre": ["Fisica optica"], "prerequisitos": ["Matematicas"] },
+      { "nombre": "Ingles general", "abre": ["Ingles tecnico"], "prerequisitos": ["Taller de ingles"] },
+      { "nombre": "Interaccion humana y sociocultural", "abre": ["Psicologia de la salud"], "prerequisitos": ["Introduccion a la tecnologia medica en oftalmologia", "Expresion oral y escrita"] }
     ]
   },
   {
     "semestre": "3 Semestre",
     "ramos": [
-      { "nombre": "Fisiopatología humana", "estado": "bloqueado", "abre": ["Microbiología e inmunología", "Semiología del sistema visual"], "prerequisitos": ["Fisiología humana"] },
-      { "nombre": "Enfermería básica", "estado": "bloqueado", "abre": ["Farmacología ocular"], "prerequisitos": ["Fisiología humana"] },
-      { "nombre": "Farmacología general", "estado": "bloqueado", "abre": ["Farmacología ocular"], "prerequisitos": ["Bioquímica"] },
-      { "nombre": "Física óptica", "estado": "bloqueado", "abre": ["Fundamentos de la oftalmología"], "prerequisitos": ["Física general"] },
-      { "nombre": "Psicología de la salud", "estado": "bloqueado", "abre": ["Salud pública"], "prerequisitos": ["Interacción humana y sociocultural"] },
-      { "nombre": "Inglés técnico", "estado": "bloqueado", "abre": [], "prerequisitos": ["Inglés general"] }
+      { "nombre": "Fisiopatologia humana", "abre": ["Microbiologia e inmunologia", "Semiologia del sistema visual"], "prerequisitos": ["Fisiologia humana"] },
+      { "nombre": "Enfermeria basica", "abre": ["Farmacologia ocular"], "prerequisitos": ["Fisiologia humana"] },
+      { "nombre": "Farmacologia general", "abre": ["Farmacologia ocular"], "prerequisitos": ["Bioquimica"] },
+      { "nombre": "Fisica optica", "abre": ["Fundamentos de la oftalmologia"], "prerequisitos": ["Fisica general"] },
+      { "nombre": "Psicologia de la salud", "abre": ["Salud publica"], "prerequisitos": ["Interaccion humana y sociocultural"] },
+      { "nombre": "Ingles tecnico", "abre": [], "prerequisitos": ["Ingles general"] }
     ]
   },
   {
     "semestre": "4 Semestre",
     "ramos": [
-      { "nombre": "Microbiología e inmunología", "estado": "bloqueado", "abre": [], "prerequisitos": ["Fisiopatología humana"] },
-      { "nombre": "Semiología del sistema visual", "estado": "bloqueado", "abre": ["Fundamentos del glaucoma", "Fundamentos del estrabismo"], "prerequisitos": ["Fisiopatología humana"] },
-      { "nombre": "Farmacología ocular", "estado": "bloqueado", "abre": ["Fundamentos del glaucoma"], "prerequisitos": ["Farmacología general", "Enfermería básica"] },
-      { "nombre": "Fundamentos de la oftalmología", "estado": "bloqueado", "abre": ["Fundamentos del estrabismo", "Fundamentos del campo visual"], "prerequisitos": ["Física óptica"] },
-      { "nombre": "Salud pública", "estado": "bloqueado", "abre": ["Gestión y liderazgo", "Bioestadística"], "prerequisitos": ["Psicología de la salud"] },
-      { "nombre": "Electivo de formación general", "estado": "bloqueado", "abre": [], "prerequisitos": [] }
+      { "nombre": "Microbiologia e inmunologia", "abre": [], "prerequisitos": ["Fisiopatologia humana"] },
+      { "nombre": "Semiologia del sistema visual", "abre": ["Fundamentos del glaucoma", "Fundamentos del estrabismo"], "prerequisitos": ["Fisiopatologia humana"] },
+      { "nombre": "Farmacologia ocular", "abre": ["Fundamentos del glaucoma"], "prerequisitos": ["Farmacologia general", "Enfermeria basica"] },
+      { "nombre": "Fundamentos de la oftalmologia", "abre": ["Fundamentos del estrabismo", "Fundamentos del campo visual"], "prerequisitos": ["Fisica optica"] },
+      { "nombre": "Salud publica", "abre": ["Gestion y liderazgo", "Bioestadistica"], "prerequisitos": ["Psicologia de la salud"] },
+      { "nombre": "Electivo de formacion general", "abre": [], "prerequisitos": [] }
     ]
   },
   {
     "semestre": "5 Semestre",
     "ramos": [
-      { "nombre": "Fundamentos del glaucoma", "estado": "bloqueado", "abre": ["Glaucoma y campo visual", "Optometría 1"], "prerequisitos": ["Semiología del sistema visual", "Farmacología ocular"] },
-      { "nombre": "Fundamentos del estrabismo", "estado": "bloqueado", "abre": ["Técnicas ortópticas y pleópticas", "Optometría 1"], "prerequisitos": ["Semiología del sistema visual", "Fundamentos de la oftalmología"] },
-      { "nombre": "Fundamentos del campo visual", "estado": "bloqueado", "abre": ["Glaucoma y campo visual"], "prerequisitos": ["Fundamentos de la oftalmología"] },
-      { "nombre": "Gestión y liderazgo", "estado": "bloqueado", "abre": [], "prerequisitos": ["Salud pública"] },
-      { "nombre": "Bioestadística", "estado": "bloqueado", "abre": ["Metodología de la investigación en oftalmología"], "prerequisitos": ["Salud pública"] },
-      { "nombre": "Bioética", "estado": "bloqueado", "abre": ["Metodología de la investigación en oftalmología"], "prerequisitos": [] }
+      { "nombre": "Fundamentos del glaucoma", "abre": ["Glaucoma y campo visual", "Optometria 1"], "prerequisitos": ["Semiologia del sistema visual", "Farmacologia ocular"] },
+      { "nombre": "Fundamentos del estrabismo", "abre": ["Tecnicas ortopticas y pleopticas", "Optometria 1"], "prerequisitos": ["Semiologia del sistema visual", "Fundamentos de la oftalmologia"] },
+      { "nombre": "Fundamentos del campo visual", "abre": ["Glaucoma y campo visual"], "prerequisitos": ["Fundamentos de la oftalmologia"] },
+      { "nombre": "Gestion y liderazgo", "abre": [], "prerequisitos": [] },
+      { "nombre": "Bioestadistica", "abre": ["Metodologia de la investigacion en oftalmologia"], "prerequisitos": ["Salud publica"] },
+      { "nombre": "Bioetica", "abre": ["Metodologia de la investigacion en oftalmologia"], "prerequisitos": [] }
     ]
   },
   {
     "semestre": "6 Semestre",
     "ramos": [
-      { "nombre": "Glaucoma y campo visual", "estado": "bloqueado", "abre": ["Neuroftalmología", "Clínica de atención primaria"], "prerequisitos": ["Fundamentos del glaucoma", "Fundamentos del campo visual"] },
-      { "nombre": "Técnicas ortópticas y pleópticas", "estado": "bloqueado", "abre": ["Neuroftalmología", "Clínica de atención primaria"], "prerequisitos": ["Fundamentos del estrabismo"] },
-      { "nombre": "Fisiopatología del polo posterior", "estado": "bloqueado", "abre": ["Imagenología ocular"], "prerequisitos": [] },
-      { "nombre": "Optometría 1", "estado": "bloqueado", "abre": ["Técnicas de apoyo para cirugía refractiva", "Optometría 2", "Seminario de grado 1", "Clínica de atención primaria"], "prerequisitos": ["Fundamentos del glaucoma", "Fundamentos del estrabismo"] },
-      { "nombre": "Metodología de la investigación en oftalmología", "estado": "bloqueado", "abre": ["Seminario de grado 1"], "prerequisitos": ["Bioestadística", "Bioética"] }
+      { "nombre": "Glaucoma y campo visual", "abre": ["Neuroftalmologia", "Clinica de atencion primaria"], "prerequisitos": ["Fundamentos del glaucoma", "Fundamentos del campo visual"] },
+      { "nombre": "Tecnicas ortopticas y pleopticas", "abre": ["Neuroftalmologia", "Clinica de atencion primaria"], "prerequisitos": ["Fundamentos del estrabismo"] },
+      { "nombre": "Fisiopatologia del polo posterior", "abre": ["Imagenologia ocular"], "prerequisitos": [] },
+      { "nombre": "Optometria 1", "abre": ["Tecnicas de apoyo para cirugia refractiva", "Optometria 2", "Seminario de grado 1", "Clinica de atencion primaria"], "prerequisitos": ["Fundamentos del glaucoma", "Fundamentos del estrabismo"] },
+      { "nombre": "Metodologia de la investigacion en oftalmologia", "abre": ["Seminario de grado 1"], "prerequisitos": ["Bioestadistica", "Bioetica"] }
     ]
   },
   {
     "semestre": "7 Semestre",
     "ramos": [
-      { "nombre": "Neuroftalmología", "estado": "bloqueado", "abre": [], "prerequisitos": ["Glaucoma y campo visual", "Técnicas ortópticas y pleópticas"] },
-      { "nombre": "Técnicas de apoyo para cirugía refractiva", "estado": "bloqueado", "abre": ["Biometría ocular"], "prerequisitos": ["Optometría 1"] },
-      { "nombre": "Imagenología ocular", "estado": "bloqueado", "abre": ["Biometría ocular"], "prerequisitos": ["Fisiopatología del polo posterior"] },
-      { "nombre": "Optometría 2", "estado": "bloqueado", "abre": ["Clínica de atención primaria optométrica", "Baja visión", "Seminario de grado 2"], "prerequisitos": ["Optometría 1"] },
-      { "nombre": "Seminario de grado 1", "estado": "bloqueado", "abre": ["Seminario de grado 2"], "prerequisitos": ["Metodología de la investigación en oftalmología"] },
-      { "nombre": "Clínica de atención primaria", "estado": "bloqueado", "abre": ["Análisis clínico integral"], "prerequisitos": ["Optometría 1"] }
+      { "nombre": "Neuroftalmologia", "abre": [], "prerequisitos": ["Glaucoma y campo visual", "Tecnicas ortopticas y pleopticas"] },
+      { "nombre": "Tecnicas de apoyo para cirugia refractiva", "abre": ["Biometria ocular"], "prerequisitos": ["Optometria 1"] },
+      { "nombre": "Imagenologia ocular", "abre": ["Biometria ocular"], "prerequisitos": ["Fisiopatologia del polo posterior"] },
+      { "nombre": "Optometria 2", "abre": ["Clinica de atencion primaria optometrica", "Baja vision", "Seminario de grado 2"], "prerequisitos": ["Optometria 1"] },
+      { "nombre": "Seminario de grado 1", "abre": ["Seminario de grado 2"], "prerequisitos": ["Metodologia de la investigacion en oftalmologia"] },
+      { "nombre": "Clinica de atencion primaria", "abre": ["Analisis clinico integral"], "prerequisitos": ["Optometria 1"] }
     ]
   },
   {
     "semestre": "8 Semestre",
     "ramos": [
-      { "nombre": "Análisis clínico integral", "estado": "bloqueado", "abre": ["Clínica médica"], "prerequisitos": ["Clínica de atención primaria"] },
-      { "nombre": "Biometría ocular", "estado": "bloqueado", "abre": [], "prerequisitos": ["Técnicas de apoyo para cirugía refractiva", "Imagenología ocular"] },
-      { "nombre": "Clínica de atención primaria optométrica", "estado": "bloqueado", "abre": ["Clínica médica", "Gestión y proyecto de intervención comunitaria"], "prerequisitos": ["Optometría 2"] },
-      { "nombre": "Baja visión", "estado": "bloqueado", "abre": [], "prerequisitos": ["Optometría 2"] },
-      { "nombre": "Seminario de grado 2", "estado": "bloqueado", "abre": ["Electivo de formación profesional 1", "Electivo de formación profesional 2"], "prerequisitos": ["Seminario de grado 1"] }
+      { "nombre": "Analisis clinico integral", "abre": ["Clinica medica"], "prerequisitos": ["Clinica de atencion primaria"] },
+      { "nombre": "Biometria ocular", "abre": [], "prerequisitos": ["Tecnicas de apoyo para cirugia refractiva", "Imagenologia ocular"] },
+      { "nombre": "Clinica de atencion primaria optometrica", "abre": ["Clinica medica", "Gestion y proyecto de intervencion comunitaria"], "prerequisitos": ["Optometria 2"] },
+      { "nombre": "Baja vision", "abre": [], "prerequisitos": ["Optometria 2"] },
+      { "nombre": "Seminario de grado 2", "abre": ["Electivo de formacion profesional 1", "Electivo de formacion profesional 2"], "prerequisitos": ["Seminario de grado 1"] }
     ]
   },
   {
     "semestre": "9 Semestre",
     "ramos": [
-      { "nombre": "Clínica médica", "estado": "bloqueado", "abre": [], "prerequisitos": ["Análisis clínico integral", "Clínica de atención primaria optométrica"] },
-      { "nombre": "Gestión y proyecto de intervención comunitaria", "estado": "bloqueado", "abre": [], "prerequisitos": ["Clínica de atención primaria optométrica"] },
-      { "nombre": "Electivo de formación profesional 1", "estado": "bloqueado", "abre": [], "prerequisitos": ["Seminario de grado 2"] },
-      { "nombre": "Electivo de formación profesional 2", "estado": "bloqueado", "abre": [], "prerequisitos": ["Seminario de grado 2"] }
+      { "nombre": "Clinica medica", "abre": [], "prerequisitos": [] },
+      { "nombre": "Gestion y proyecto de intervencion comunitaria", "abre": [], "prerequisitos": [] },
+      { "nombre": "Electivo de formacion profesional 1", "abre": [], "prerequisitos": [] },
+      { "nombre": "Electivo de formacion profesional 2", "abre": [], "prerequisitos": [] }
     ]
   },
   {
     "semestre": "10 Semestre",
     "ramos": [
-      { "nombre": "Actividad de titulación: internado", "estado": "bloqueado", "abre": [], "prerequisitos": ["Electivo de formación profesional 1", "Electivo de formación profesional 2"] }
+      { "nombre": "Actividad de titulacion: internado", "abre": [], "prerequisitos": [] }
     ]
   }
 ]
