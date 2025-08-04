@@ -1,63 +1,155 @@
-body {
-  font-family: sans-serif;
-  background-color: #f5f8ff;
-  color: #002147;
+/* Colores base */
+:root {
+  --color-azul-navy: #1b2a49;
+  --color-azul-claro: #3f599f;
+  --color-azul-medio: #5472d3;
+  --color-azul-oscuro: #0f1c33;
+  --color-verde: #4caf50;
+  --color-gris: #777;
+  --color-blanco: #fff;
+}
+
+/* Reset básico */
+* {
+  box-sizing: border-box;
   margin: 0;
-  padding: 2rem;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: #f0f4ff;
+  color: var(--color-azul-navy);
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.titulo {
+  text-align: center;
+  margin-bottom: 20px;
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--color-azul-navy);
+}
+
+/* Leyenda */
+.leyenda {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.leyenda-item {
+  padding: 5px 15px;
+  margin: 0 10px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--color-blanco);
+  user-select: none;
+  display: inline-block;
+  min-width: 90px;
   text-align: center;
 }
 
-h1 {
-  font-size: 2rem;
-  color: #002147;
-  margin-bottom: 1rem;
+.bloqueado {
+  background-color: var(--color-azul-oscuro);
 }
 
-.leyenda {
-  margin-bottom: 1rem;
+.desbloqueado {
+  background-color: var(--color-azul-medio);
 }
 
-.cuadro {
-  display: inline-block;
-  width: 15px;
-  height: 15px;
-  margin: 0 5px;
-  border-radius: 3px;
+.aprobado {
+  background-color: var(--color-verde);
 }
 
-.aprobado { background-color: #004080; }
-.desbloqueado { background-color: #6baed6; }
-.bloqueado { background-color: #d3d3d3; }
+/* Progreso */
+#progreso {
+  text-align: center;
+  margin-bottom: 25px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
 
-#contenedor-malla {
+/* Contenedor de semestres: fila con scroll horizontal en móvil */
+#contenedor-semestres {
   display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  justify-content: center;
+  gap: 25px;
+  overflow-x: auto;
+  padding-bottom: 15px;
 }
 
+/* Cada semestre es una columna */
 .semestre {
-  background-color: #e0e6f8;
-  border: 2px solid #004080;
-  border-radius: 12px;
-  padding: 1rem;
-  min-width: 220px;
+  background: var(--color-blanco);
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgb(27 42 73 / 0.15);
+  padding: 15px;
+  min-width: 280px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .semestre h2 {
-  color: #002147;
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  margin-bottom: 15px;
+  border-bottom: 2px solid var(--color-azul-medio);
+  padding-bottom: 8px;
+  color: var(--color-azul-navy);
+}
+
+/* Lista de ramos */
+.lista-ramos {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .ramo {
-  margin: 5px 0;
-  padding: 0.5rem;
-  border-radius: 8px;
+  padding: 10px 12px;
+  border-radius: 6px;
   cursor: pointer;
-  background-color: #d3d3d3;
-  transition: all 0.3s;
+  user-select: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  color: var(--color-blanco);
+  box-shadow: 0 0 5px rgb(0 0 0 / 0.1);
 }
 
-.ramo.aprobado { background-color: #004080; color: white; }
-.ramo.desbloqueado { background-color: #6baed6; color: white; }
+/* Estados de ramos */
+.ramo.bloqueado {
+  background-color: var(--color-azul-oscuro);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.ramo.desbloqueado {
+  background-color: var(--color-azul-medio);
+}
+
+.ramo.aprobado {
+  background-color: var(--color-verde);
+}
+
+/* Hover para desbloqueados y aprobados */
+.ramo.desbloqueado:hover,
+.ramo.aprobado:hover {
+  filter: brightness(0.9);
+}
+
+/* Scrollbar para #contenedor-semestres */
+#contenedor-semestres::-webkit-scrollbar {
+  height: 8px;
+}
+
+#contenedor-semestres::-webkit-scrollbar-track {
+  background: #e1e8ff;
+  border-radius: 4px;
+}
+
+#contenedor-semestres::-webkit-scrollbar-thumb {
+  background: var(--color-azul-medio);
+  border-radius: 4px;
+}
