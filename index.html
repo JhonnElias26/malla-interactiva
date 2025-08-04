@@ -5,21 +5,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tecnología Médica en Oftalmología y Optometría</title>
-  <link rel="stylesheet" href="estilos.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
   <h1 class="titulo">Tecnología Médica en Oftalmología y Optometría</h1>
 
-  <div class="leyenda">
-    <span class="leyenda-item bloqueado">Bloqueado</span>
-    <span class="leyenda-item desbloqueado">Desbloqueado</span>
-    <span class="leyenda-item aprobado">Aprobado</span>
+  <div class="leyenda" role="list" aria-label="Leyenda estados de ramos">
+    <span class="leyenda-item bloqueado" role="listitem">Bloqueado</span>
+    <span class="leyenda-item desbloqueado" role="listitem">Desbloqueado</span>
+    <span class="leyenda-item aprobado" role="listitem">Aprobado</span>
   </div>
 
-  <p id="progreso">Progreso: 0%</p>
+  <p id="progreso" aria-live="polite" aria-atomic="true">Progreso: 0%</p>
 
-  <div id="contenedor-semestres"></div>
+  <div id="contenedor-semestres" role="main" aria-label="Malla curricular"></div>
 
   <script src="script.js"></script>
 </body>
