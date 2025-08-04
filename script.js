@@ -1,134 +1,27 @@
-// Datos malla curricular con prerrequisitos y "abre"
-const malla = [
-  {
-    semestre: "1 Semestre",
-    ramos: [
-      { nombre: "Anatomia general", abre: ["Fisiologia humana", "Anatomia del sistema visual"], prerequisitos: [], estado: "desbloqueado" },
-      { nombre: "Biologia Humana e Histologia", abre: ["Fisiologia humana", "Anatomia del sistema visual"], prerequisitos: [], estado: "desbloqueado" },
-      { nombre: "Quimica general y organica", abre: ["Bioquimica"], prerequisitos: [], estado: "desbloqueado" },
-      { nombre: "Matematicas", abre: ["Fisica general"], prerequisitos: [], estado: "desbloqueado" },
-      { nombre: "Introduccion a la tecnologia medica en oftalmologia", abre: ["Interaccion humana y sociocultural"], prerequisitos: [], estado: "desbloqueado" },
-      { nombre: "Expresion oral y escrita", abre: ["Interaccion humana y sociocultural"], prerequisitos: [], estado: "desbloqueado" },
-      { nombre: "Taller de ingles", abre: ["Ingles general"], prerequisitos: [], estado: "desbloqueado" }
-    ]
-  },
-  {
-    semestre: "2 Semestre",
-    ramos: [
-      { nombre: "Fisiologia humana", abre: ["Fisiopatologia humana", "Enfermeria basica"], prerequisitos: ["Anatomia general", "Biologia Humana e Histologia"], estado: "bloqueado" },
-      { nombre: "Anatomia del sistema visual", abre: [], prerequisitos: ["Anatomia general", "Biologia Humana e Histologia"], estado: "bloqueado" },
-      { nombre: "Bioquimica", abre: ["Farmacologia general"], prerequisitos: ["Quimica general y organica"], estado: "bloqueado" },
-      { nombre: "Fisica general", abre: ["Fisica optica"], prerequisitos: ["Matematicas"], estado: "bloqueado" },
-      { nombre: "Ingles general", abre: ["Ingles tecnico"], prerequisitos: ["Taller de ingles"], estado: "bloqueado" },
-      { nombre: "Interaccion humana y sociocultural", abre: ["Psicologia de la salud"], prerequisitos: ["Introduccion a la tecnologia medica en oftalmologia", "Expresion oral y escrita"], estado: "bloqueado" }
-    ]
-  },
-  {
-    semestre: "3 Semestre",
-    ramos: [
-      { nombre: "Fisiopatologia humana", abre: ["Microbiologia e inmunologia", "Semiologia del sistema visual"], prerequisitos: ["Fisiologia humana"], estado: "bloqueado" },
-      { nombre: "Enfermeria basica", abre: ["Farmacologia ocular"], prerequisitos: ["Fisiologia humana"], estado: "bloqueado" },
-      { nombre: "Farmacologia general", abre: ["Farmacologia ocular"], prerequisitos: ["Bioquimica"], estado: "bloqueado" },
-      { nombre: "Fisica optica", abre: ["Fundamentos de la oftalmologia"], prerequisitos: ["Fisica general"], estado: "bloqueado" },
-      { nombre: "Psicologia de la salud", abre: ["Salud publica"], prerequisitos: ["Interaccion humana y sociocultural"], estado: "bloqueado" },
-      { nombre: "Ingles tecnico", abre: [], prerequisitos: ["Ingles general"], estado: "bloqueado" }
-    ]
-  },
-  {
-    semestre: "4 Semestre",
-    ramos: [
-      { nombre: "Microbiologia e inmunologia", abre: [], prerequisitos: ["Fisiopatologia humana"], estado: "bloqueado" },
-      { nombre: "Semiologia del sistema visual", abre: ["Fundamentos del glaucoma", "Fundamentos del estrabismo"], prerequisitos: ["Fisiopatologia humana"], estado: "bloqueado" },
-      { nombre: "Farmacologia ocular", abre: ["Fundamentos del glaucoma"], prerequisitos: ["Farmacologia general", "Enfermeria basica"], estado: "bloqueado" },
-      { nombre: "Fundamentos de la oftalmologia", abre: ["Fundamentos del estrabismo", "Fundamentos del campo visual"], prerequisitos: ["Fisica optica"], estado: "bloqueado" },
-      { nombre: "Salud publica", abre: ["Gestion y liderazgo", "Bioestadistica"], prerequisitos: ["Psicologia de la salud"], estado: "bloqueado" },
-      { nombre: "Electivo de formacion general", abre: [], prerequisitos: [], estado: "bloqueado" }
-    ]
-  },
-  {
-    semestre: "5 Semestre",
-    ramos: [
-      { nombre: "Fundamentos del glaucoma", abre: ["Glaucoma y campo visual", "Optometria 1"], prerequisitos: ["Semiologia del sistema visual", "Farmacologia ocular"], estado: "bloqueado" },
-      { nombre: "Fundamentos del estrabismo", abre: ["Tecnicas ortopticas y pleopticas", "Optometria 1"], prerequisitos: ["Semiologia del sistema visual", "Fundamentos de la oftalmologia"], estado: "bloqueado" },
-      { nombre: "Fundamentos del campo visual", abre: ["Glaucoma y campo visual"], prerequisitos: ["Fundamentos de la oftalmologia"], estado: "bloqueado" },
-      { nombre: "Gestion y liderazgo", abre: [], prerequisitos: [], estado: "bloqueado" },
-      { nombre: "Bioestadistica", abre: ["Metodologia de la investigacion en oftalmologia"], prerequisitos: ["Salud publica"], estado: "bloqueado" },
-      { nombre: "Bioetica", abre: ["Metodologia de la investigacion en oftalmologia"], prerequisitos: [], estado: "bloqueado" }
-    ]
-  },
-  {
-    semestre: "6 Semestre",
-    ramos: [
-      { nombre: "Glaucoma y campo visual", abre: ["Neuroftalmologia", "Clinica de atencion primaria"], prerequisitos: ["Fundamentos del glaucoma", "Fundamentos del campo visual"], estado: "bloqueado" },
-      { nombre: "Tecnicas ortopticas y pleopticas", abre: ["Neuroftalmologia", "Clinica de atencion primaria"], prerequisitos: ["Fundamentos del estrabismo"], estado: "bloqueado" },
-      { nombre: "Fisiopatologia del polo posterior", abre: ["Imagenologia ocular"], prerequisitos: [], estado: "bloqueado" },
-      { nombre: "Optometria 1", abre: ["Tecnicas de apoyo para cirugia refractiva", "Optometria 2", "Seminario de grado 1", "Clinica de atencion primaria"], prerequisitos: ["Fundamentos del glaucoma", "Fundamentos del estrabismo"], estado: "bloqueado" },
-      { nombre: "Metodologia de la investigacion en oftalmologia", abre: ["Seminario de grado 1"], prerequisitos: ["Bioestadistica", "Bioetica"], estado: "bloqueado" }
-    ]
-  },
-  {
-    semestre: "7 Semestre",
-    ramos: [
-      { nombre: "Neuroftalmologia", abre: [], prerequisitos: ["Glaucoma y campo visual", "Tecnicas ortopticas y pleopticas"], estado: "bloqueado" },
-      { nombre: "Tecnicas de apoyo para cirugia refractiva", abre: ["Biometria ocular"], prerequisitos: ["Optometria 1"], estado: "bloqueado" },
-      { nombre: "Imagenologia ocular", abre: ["Biometria ocular"], prerequisitos: ["Fisiopatologia del polo posterior"], estado: "bloqueado" },
-      { nombre: "Optometria 2", abre: ["Clinica de atencion primaria optometrica", "Baja vision", "Seminario de grado 2"], prerequisitos: ["Optometria 1"], estado: "bloqueado" },
-      { nombre: "Seminario de grado 1", abre: ["Seminario de grado 2"], prerequisitos: ["Metodologia de la investigacion en oftalmologia"], estado: "bloqueado" },
-      { nombre: "Clinica de atencion primaria", abre: ["Analisis clinico integral"], prerequisitos: ["Optometria 1"], estado: "bloqueado" }
-    ]
-  },
-  {
-    semestre: "8 Semestre",
-    ramos: [
-      { nombre: "Analisis clinico integral", abre: ["Clinica medica"], prerequisitos: ["Clinica de atencion primaria"], estado: "bloqueado" },
-      { nombre: "Biometria ocular", abre: [], prerequisitos: ["Tecnicas de apoyo para cirugia refractiva", "Imagenologia ocular"], estado: "bloqueado" },
-      { nombre: "Clinica de atencion primaria optometrica", abre: ["Clinica medica", "Gestion y proyecto de intervencion comunitaria"], prerequisitos: ["Optometria 2"], estado: "bloqueado" },
-      { nombre: "Baja vision", abre: [], prerequisitos: ["Optometria 2"], estado: "bloqueado" },
-      { nombre: "Seminario de grado 2", abre: ["Electivo de formacion profesional 1", "Electivo de formacion profesional 2"], prerequisitos: ["Seminario de grado 1"], estado: "bloqueado" }
-    ]
-  },
-  {
-    semestre: "9 Semestre",
-    ramos: [
-      { nombre: "Clinica medica", abre: [], prerequisitos: [], estado: "bloqueado" },
-      { nombre: "Gestion y proyecto de intervencion comunitaria", abre: [], prerequisitos: [], estado: "bloqueado" },
-      { nombre: "Electivo de formacion profesional 1", abre: [], prerequisitos: [], estado: "bloqueado" },
-      { nombre: "Electivo de formacion profesional 2", abre: [], prerequisitos: [], estado: "bloqueado" }
-    ]
-  },
-  {
-    semestre: "10 Semestre",
-    ramos: [
-      { nombre: "Actividad de titulacion: internado", abre: [], prerequisitos: [], estado: "bloqueado" }
-    ]
-  }
-];
-
-// Mapa rápido de ramos
-const mapaRamos = new Map();
-
+const STORAGE_KEY = "mallaTMEstado";
 const contenedor = document.getElementById("contenedor-semestres");
 const progresoElem = document.getElementById("progreso");
 
-// Cargar estado guardado
-function cargarEstado() {
-  const json = localStorage.getItem("estadoMalla");
+let malla = [];
+let mapaRamos = new Map();
+
+// --- Funciones de almacenamiento ---
+function cargarEstadoGuardado() {
+  const json = localStorage.getItem(STORAGE_KEY);
   if (!json) return null;
   try {
-    const estado = JSON.parse(json);
-    return estado;
+    return JSON.parse(json);
   } catch {
     return null;
   }
 }
 
-// Guardar estado
 function guardarEstado() {
-  localStorage.setItem("estadoMalla", JSON.stringify(malla));
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(malla));
 }
 
-// Crear mapa para acceso rápido
-function crearMapa() {
+// --- Crear mapa de ramos para acceso rápido ---
+function crearMapaRamos() {
   mapaRamos.clear();
   malla.forEach(semestre => {
     semestre.ramos.forEach(ramo => {
@@ -137,33 +30,218 @@ function crearMapa() {
   });
 }
 
-// Actualizar desbloqueos según prerrequisitos
+// --- Actualizar desbloqueos ---
 function actualizarDesbloqueos() {
-  // Ramo aprobado
-  const aprobados = new Set();
+  const aprobadosSet = new Set();
   malla.forEach(s => s.ramos.forEach(r => {
-    if (r.estado === "aprobado") aprobados.add(r.nombre);
+    if (r.estado === "aprobado") aprobadosSet.add(r.nombre);
   }));
 
-  let cambio = false;
+  let huboCambios = false;
 
   malla.forEach(s => s.ramos.forEach(r => {
     if (r.estado === "bloqueado") {
-      // Si no tiene prerequisitos, desbloquear
       if (!r.prerequisitos || r.prerequisitos.length === 0) {
         r.estado = "desbloqueado";
-        cambio = true;
+        huboCambios = true;
       } else {
-        // Desbloquear si todos prerequisitos están aprobados
-        if (r.prerequisitos.every(pr => aprobados.has(pr))) {
+        const puedeDesbloquear = r.prerequisitos.every(pr => aprobadosSet.has(pr));
+        if (puedeDesbloquear) {
           r.estado = "desbloqueado";
-          cambio = true;
+          huboCambios = true;
         }
       }
     }
   }));
 
-  if (cambio) {
+  if (huboCambios) {
     guardarEstado();
-    renderizar();
+    renderizarEstados();
   }
+}
+
+// --- Renderizar UI ---
+function cargarMallaUI() {
+  contenedor.innerHTML = "";
+
+  malla.forEach(semestre => {
+    const divSem = document.createElement("div");
+    divSem.classList.add("semestre");
+    divSem.setAttribute("role", "region");
+    divSem.setAttribute("aria-label", semestre.semestre);
+
+    const h2 = document.createElement("h2");
+    h2.textContent = semestre.semestre;
+    divSem.appendChild(h2);
+
+    const ul = document.createElement("ul");
+    ul.classList.add("lista-ramos");
+
+    semestre.ramos.forEach(ramo => {
+      // Si el estado no está definido (carga inicial) lo ponemos bloqueado salvo que no tenga prerequisitos
+      if (!ramo.estado) {
+        ramo.estado = (ramo.prerequisitos && ramo.prerequisitos.length > 0) ? "bloqueado" : "desbloqueado";
+      }
+
+      const li = document.createElement("li");
+      li.classList.add("ramo", ramo.estado);
+      li.tabIndex = ramo.estado === "bloqueado" ? -1 : 0;
+      li.setAttribute("role", "button");
+      li.setAttribute("aria-pressed", ramo.estado === "aprobado" ? "true" : "false");
+      li.setAttribute("aria-disabled", ramo.estado === "bloqueado" ? "true" : "false");
+
+      li.innerHTML = ramo.nombre + (ramo.estado === "aprobado" ? " &#10003;" : "");
+
+      // Tooltip textos
+      const prereqsText = ramo.prerequisitos && ramo.prerequisitos.length > 0
+        ? "Prerrequisitos: " + ramo.prerequisitos.join(", ")
+        : "Sin prerrequisitos";
+      const abreText = ramo.abre && ramo.abre.length > 0
+        ? "Abre: " + ramo.abre.join(", ")
+        : "No abre otros ramos";
+
+      let tooltip = null;
+
+      li.addEventListener("mouseenter", (e) => {
+        tooltip = crearTooltip(prereqsText + "\n" + abreText);
+        posicionarTooltip(e, tooltip);
+        tooltip.style.opacity = "1";
+      });
+      li.addEventListener("mousemove", (e) => {
+        if (tooltip) posicionarTooltip(e, tooltip);
+      });
+      li.addEventListener("mouseleave", () => {
+        if (tooltip) {
+          tooltip.style.opacity = "0";
+          setTimeout(() => tooltip.remove(), 300);
+          tooltip = null;
+        }
+      });
+
+      if (ramo.estado !== "bloqueado") {
+        li.style.cursor = "pointer";
+
+        li.addEventListener("click", () => {
+          if (ramo.estado === "desbloqueado") {
+            ramo.estado = "aprobado";
+          } else if (ramo.estado === "aprobado") {
+            ramo.estado = "desbloqueado";
+          }
+          guardarEstado();
+          actualizarProgreso();
+          actualizarDesbloqueos();
+          renderizarEstados();
+        });
+
+        li.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            li.click();
+          }
+        });
+      } else {
+        li.style.cursor = "not-allowed";
+      }
+
+      ul.appendChild(li);
+    });
+
+    divSem.appendChild(ul);
+    contenedor.appendChild(divSem);
+  });
+
+  actualizarProgreso();
+  actualizarDesbloqueos();
+}
+
+function crearTooltip(texto) {
+  const tooltip = document.createElement("div");
+  tooltip.className = "tooltip";
+  tooltip.textContent = texto;
+  tooltip.style.position = "absolute";
+  tooltip.style.background = "#1b2a49";
+  tooltip.style.color = "white";
+  tooltip.style.padding = "6px 10px";
+  tooltip.style.borderRadius = "6px";
+  tooltip.style.fontSize = "0.8rem";
+  tooltip.style.pointerEvents = "none";
+  tooltip.style.opacity = "0";
+  tooltip.style.transition = "opacity 0.3s ease";
+  tooltip.style.zIndex = "1000";
+  document.body.appendChild(tooltip);
+  return tooltip;
+}
+
+function posicionarTooltip(event, tooltip) {
+  const padding = 10;
+  const x = event.pageX + padding;
+  const y = event.pageY + padding;
+  tooltip.style.left = x + "px";
+  tooltip.style.top = y + "px";
+}
+
+function actualizarProgreso() {
+  let total = 0;
+  let aprobados = 0;
+  malla.forEach(s => s.ramos.forEach(r => {
+    total++;
+    if (r.estado === "aprobado") aprobados++;
+  }));
+
+  const porcentaje = total ? Math.round((aprobados / total) * 100) : 0;
+  progresoElem.textContent = `Progreso: ${porcentaje}%`;
+}
+
+function renderizarEstados() {
+  const liElems = document.querySelectorAll("#contenedor-semestres .ramo");
+  liElems.forEach(li => {
+    const nombre = li.textContent.replace(" ✔", "").trim();
+    const ramo = mapaRamos.get(nombre);
+    if (!ramo) return;
+
+    li.classList.remove("bloqueado", "desbloqueado", "aprobado");
+    li.classList.add(ramo.estado);
+
+    li.setAttribute("aria-pressed", ramo.estado === "aprobado" ? "true" : "false");
+    li.setAttribute("aria-disabled", ramo.estado === "bloqueado" ? "true" : "false");
+    li.tabIndex = ramo.estado === "bloqueado" ? -1 : 0;
+
+    li.style.cursor = ramo.estado === "bloqueado" ? "not-allowed" : "pointer";
+
+    if (ramo.estado === "aprobado" && !li.innerHTML.includes("✔")) {
+      li.innerHTML = ramo.nombre + " &#10003;";
+    } else if (ramo.estado !== "aprobado") {
+      li.innerHTML = ramo.nombre;
+    }
+  });
+}
+
+// --- Inicialización ---
+function init() {
+  const estadoGuardado = cargarEstadoGuardado();
+
+  fetch("malla.json")
+    .then(res => {
+      if (!res.ok) throw new Error("Error cargando malla.json");
+      return res.json();
+    })
+    .then(data => {
+      if (estadoGuardado) {
+        malla = estadoGuardado;
+      } else {
+        malla = data;
+      }
+
+      crearMapaRamos();
+      actualizarDesbloqueos();
+      cargarMallaUI();
+    })
+    .catch(err => {
+      console.error(err);
+      // En caso de error, crear malla vacía para no romper UI
+      malla = [];
+      cargarMallaUI();
+    });
+}
+
+init();
